@@ -305,6 +305,8 @@ type optionFunc func(*options) error
 func (f optionFunc) apply(r *options) error { return f(r) }
 
 func readerContentEqual(t testing.TB, r1, r2 io.Reader) {
+	t.Helper()
+
 	const bufSize = 128
 
 	buf1 := make([]byte, bufSize)
